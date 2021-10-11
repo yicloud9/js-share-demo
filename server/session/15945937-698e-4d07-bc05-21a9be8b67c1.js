@@ -1,0 +1,1 @@
+module.exports = {"userId":"123","_expire":1633924982850,"_maxAge":300000};

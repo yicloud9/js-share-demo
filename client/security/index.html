@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security</title>
+</head>
+<body>
+    <div id="app" style="width:40px;height:40px;"></div>
+    <button>加载文章</button>
+    <script>
+        document.querySelector('button').addEventListener('click', async ()=> {
+            const res = await fetch('/xss')
+            const json = await res.json()
+            const div = document.createElement('div')
+            div.innerHTML = json.content
+            document.querySelector('#app').appendChild(div)
+        })
+    </script>
+</body>
+</html>

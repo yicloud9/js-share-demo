@@ -1,0 +1,22 @@
+{
+  "name": "share-demo",
+  "version": "1.0.0",
+  "description": "分享前端的相关内容",
+  "main": "index.js",
+  "repository": "git@github.com:yicloud9/js-share-demo.git",
+  "author": "yicloud <zxlegend@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "node server"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.2",
+    "jwt-simple": "^0.5.6",
+    "koa": "^2.13.3",
+    "koa-bodyparser": "^4.3.0",
+    "koa-jwt": "^4.0.3",
+    "koa-router": "^10.1.1",
+    "koa-session": "^6.2.0",
+    "nunjucks": "^3.2.3"
+  }
+}

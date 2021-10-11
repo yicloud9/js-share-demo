@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div id="1" style="width:300px;height:300px;background:black">
+        <div id="2" style="width:200px;height:200px;background:red">
+            <div id="3" style="width:100px;height:100px;background:blue">
+                click
+            </div>
+        </div>
+    </div>
+    <script>
+        const node1 = document.getElementById('1')
+        const node2 = document.getElementById('2')
+        const node3 = document.getElementById('3')
+        node1.addEventListener('click', (e) => {
+            console.log('点击了黑色区域')
+        })
+        node2.addEventListener('click', (e) => {
+            console.log('点击了红色区域')
+        })
+        node3.addEventListener('click', (e) => {
+            // e.stopPropagation() 
+            console.log('点击了蓝色区域')
+        })
+    </script>
+</body>
+</html>

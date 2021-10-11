@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token 登录测试</title>
+</head>
+<body>
+    <span>
+        <label for="username">用户名</label>
+        <input type="text" id="username" />
+    </span>
+    <span>
+        <label for="password">用户名</label>
+        <input type="text" id="password" />
+    </span>
+    <button id="login-btn">登录</button>
+    <div id="user"></div>
+    <script>
+        async function postData(url = '', data = {}) {
+            const cHeaders = new Headers({
+                'Content-Type': 'application/json',
+                'token': localStorage.getItem('token') || ''
+            })
+            const response = await fetch(url, {
+              method: 'POST',
+              headers: cHeaders,
+              body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        const username = document.getElementById('username')
+        const password = document.getElementById('password')
+        const loginBtn = document.getElementById('login-btn')
+        loginBtn.addEventListener('click', () => {
+            postData('/user/login', {
+                username: username.value,
+                password: password.value
+            }).then(res => {
+                if(res.code == 100) {
+                    localStorage.setItem('token', res.token)
+                    postData('/userInfo', {}).then(res => {
+                        document.getElementById('user').innerHTML = `获取用户的信息为${res.name}` 
+                    })
+                } else {
+                    localStorage.setItem('token', '')
+                    // location.reload()   
+                }
+            })
+        })
+    </script>
+</body>
+</html>
