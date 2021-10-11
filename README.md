@@ -3,7 +3,8 @@
 
 
 ## questions
-* cookie、session和token的原理，存储，与后端的交互中的作用，给出具体项目示例
+* cookie、session和token的原理，存储，与后端的交互中的作用，给出具体项目示例，事例参考
+
 * 前端缓存
 * dom基础--事件
 * 安全相关--xss攻击等与前端相关的
